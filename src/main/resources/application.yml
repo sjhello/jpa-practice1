@@ -13,14 +13,18 @@ spring:
       username: sa
       password:
       driver-class-name: org.h2.Driver
-  batch:
-    jdbc:
-      initialize-schema: embedded
-    job:
-      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
   h2:
     console:
       path: /h2-console
       enabled: true
 server:
   port: 8889
+logging:
+  level:
+    org.hibernate.sql: debug

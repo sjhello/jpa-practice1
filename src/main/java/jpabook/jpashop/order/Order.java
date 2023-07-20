@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "orders")
@@ -46,5 +47,16 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    
+    /**
+     * 생성 메서드
+     * */
+    public static Order createOrder(Member member, Delivery delivery) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        order.setOrderDate(LocalDateTime.now());
+        order.setStatus(OrderStatus.ORDER);
+
+        return order;
+    }
 }

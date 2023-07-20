@@ -19,4 +19,8 @@ public class OrderRepository {
     public Order findById(Long id) {
         return em.find(Order.class, id);
     }
+
+    public void deleteById(Long id) {
+        em.remove(findById(id));
+    }
 }

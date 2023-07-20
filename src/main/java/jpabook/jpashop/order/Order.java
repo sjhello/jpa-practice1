@@ -1,5 +1,6 @@
 package jpabook.jpashop.order;
 
+import jpabook.jpashop.delivery.Delivery;
 import jpabook.jpashop.member.Member;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +28,8 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 public class MemberRepository {
@@ -16,7 +17,18 @@ public class MemberRepository {
         return member.getId();
     }
 
-    public Member find(Long id) {
+    public Member findById(Long id) {
         return em.find(Member.class, id);
+    }
+
+    public List<Member> findByName(String username) {
+        return em.createQuery("select m from Member m where m.username = :username", Member.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
+
+    public List<Member> findAll() {
+        return em.createQuery("select m from Member m", Member.class)
+                .getResultList();
     }
 }

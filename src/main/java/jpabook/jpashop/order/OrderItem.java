@@ -3,7 +3,6 @@ package jpabook.jpashop.order;
 import jpabook.jpashop.item.Item;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.jmx.export.annotation.ManagedAttribute;
 
 import javax.persistence.*;
 

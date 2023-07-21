@@ -8,10 +8,11 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
+    generate-ddl: true
   h2:
     console:
       path: /h2-console
@@ -21,3 +22,4 @@ server:
 logging:
   level:
     org.hibernate.SQL: debug
+  jpa:

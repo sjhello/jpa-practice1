@@ -13,6 +13,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Transactional
     public Long join(Member member) {
         validateDuplicatMember(member);
         return memberRepository.save(member);
@@ -27,5 +28,9 @@ public class MemberService {
 
     public Member findById(Long id) {
         return memberRepository.findById(id);
+    }
+
+    public List<Member> findMembers() {
+        return memberRepository.findAll();
     }
 }

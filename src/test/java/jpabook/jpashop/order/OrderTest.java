@@ -1,11 +1,9 @@
-package jpabook.jpashop.unit;
+package jpabook.jpashop.order;
 
 import jpabook.jpashop.delivery.Delivery;
 import jpabook.jpashop.delivery.DeliveryStatus;
 import jpabook.jpashop.member.Address;
 import jpabook.jpashop.member.Member;
-import jpabook.jpashop.order.Order;
-import jpabook.jpashop.order.OrderStatus;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

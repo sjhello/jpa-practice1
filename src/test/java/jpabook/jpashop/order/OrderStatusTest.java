@@ -1,6 +1,5 @@
-package jpabook.jpashop.unit;
+package jpabook.jpashop.order;
 
-import jpabook.jpashop.order.OrderStatus;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

@@ -5,10 +5,10 @@ import jpabook.jpashop.member.Member;
 
 public class MemberFixture {
 
-    public static Member createMemberWithNameAndAddress() {
+    public static Member createMember(String username, String city, String street, String zipCode) {
         Member member = new Member();
-        member.setUsername("sjhello");
-        member.setAddress(new Address("seoul", "seoul street", "seoul zipcode"));
+        member.setUsername(username);
+        member.setAddress(new Address(city, street, zipCode));
 
         return member;
     }

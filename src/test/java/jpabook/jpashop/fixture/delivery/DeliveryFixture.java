@@ -13,4 +13,12 @@ public class DeliveryFixture {
 
         return delivery;
     }
+
+    public static Delivery createDelivery(Member member, DeliveryStatus deliveryStatus) {
+        Delivery delivery = new Delivery();
+        delivery.setStatus(deliveryStatus);
+        delivery.setAddress(member.getAddress());
+
+        return delivery;
+    }
 }

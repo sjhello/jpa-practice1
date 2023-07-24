@@ -1,7 +1,6 @@
 package jpabook.jpashop.fixture.item;
 
 import jpabook.jpashop.item.Album;
-import jpabook.jpashop.item.Book;
 import jpabook.jpashop.item.Item;
 
 public class ItemFixture {

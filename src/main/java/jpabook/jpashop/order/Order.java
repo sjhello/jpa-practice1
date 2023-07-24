@@ -1,7 +1,9 @@
 package jpabook.jpashop.order;
 
 import jpabook.jpashop.delivery.Delivery;
+import jpabook.jpashop.delivery.DeliveryStatus;
 import jpabook.jpashop.member.Member;
+import jpabook.jpashop.order.exception.AlreadyShippedException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,16 +52,45 @@ public class Order {
         member.getOrders().add(this);
     }
 
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
     /**
      * 생성 메서드
      * */
-    public static Order createOrder(Member member, Delivery delivery) {
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
         order.setOrderDate(LocalDateTime.now());
         order.setStatus(OrderStatus.ORDER);
 
         return order;
+    }
+
+    /**
+     * 비즈니스
+     * */
+    public void cancel() {
+        if (this.delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new AlreadyShippedException("이미 배송완료된 물품은 취소 할 수 없습니다");
+        }
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : this.orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : this.orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
     }
 }

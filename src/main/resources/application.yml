@@ -1,3 +1,5 @@
+
+
 spring:
   datasource:
     hikari:
@@ -12,9 +14,18 @@ spring:
       hibernate:
         format_sql: true
     generate-ddl: true
+  profiles:
+    active: local
 server:
   port: 8889
 logging:
   level:
     org.hibernate.SQL: debug
   jpa:
+
+---
+spring:
+  profiles:
+    active: test
+server:
+  port: 8080

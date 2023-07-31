@@ -2,11 +2,9 @@ package jpabook.jpashop.web.member;
 
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberService;
-import jpabook.jpashop.web.member.dto.CreateMemberResponse;
+import jpabook.jpashop.web.member.dto.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -31,5 +29,31 @@ public class MemberApiController {
     public CreateMemberResponse saveMemberV1(@RequestBody @Valid Member member) {
         Long memberId = memberService.join(member);
         return new CreateMemberResponse(memberId);
+    }
+
+    /**
+     * DTO를 받는 경우
+     * - 엔티티와 DTO를 분리
+     * - API 스펙이 바뀌어도 엔티티가 바뀌지 않음 그 반대의 경우도 마찬가지
+     * */
+    @PostMapping("/api/v2/members")
+    public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest memberRequest) {
+        Member member = new Member();
+        member.setUsername(memberRequest.getUsername());
+        Long memberId = memberService.join(member);
+        return new CreateMemberResponse(memberId);
+    }
+
+    @PatchMapping("/api/v2/members/{id}")
+    public UpdateMemberResponse updateMemberV2(@PathVariable Long id, @RequestBody @Valid UpdateMemberRequest updateMemberRequest) {
+        memberService.update(id, updateMemberRequest.getUsername());
+        Member findMember = memberService.findById(id);
+        return new UpdateMemberResponse(findMember.getId(), findMember.getUsername());
+    }
+
+    @GetMapping("/api/v2/members/{id}")
+    public ReadMemberResponse updateMemberV2(@PathVariable Long id) {
+        Member member = memberService.findById(id);
+        return new ReadMemberResponse(member.getId(), member.getUsername());
     }
 }

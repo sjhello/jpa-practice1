@@ -1,8 +1,9 @@
 package jpabook.jpashop.web.member.dto;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
-public class CreateMemberRequest {
+@Getter
+public class UpdateMemberRequest {
+
     private String username;
 }

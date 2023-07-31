@@ -4,7 +4,6 @@ spring:
       jdbc-url: jdbc:mysql://localhost:3306/jpashop
       username: jpa_user
       password: jpa_user123
-#      driver-class-name: com.mysql.jdbc.Driver -> deprecated
       driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -13,10 +12,6 @@ spring:
       hibernate:
         format_sql: true
     generate-ddl: true
-  h2:
-    console:
-      path: /h2-console
-      enabled: true
 server:
   port: 8889
 logging:

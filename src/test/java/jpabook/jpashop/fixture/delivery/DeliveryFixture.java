@@ -1,8 +1,8 @@
 package jpabook.jpashop.fixture.delivery;
 
-import jpabook.jpashop.delivery.Delivery;
-import jpabook.jpashop.delivery.DeliveryStatus;
-import jpabook.jpashop.member.Member;
+import jpabook.jpashop.domain.delivery.Delivery;
+import jpabook.jpashop.domain.delivery.DeliveryStatus;
+import jpabook.jpashop.domain.member.Member;
 
 public class DeliveryFixture {
 

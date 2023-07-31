@@ -1,7 +1,7 @@
 package jpabook.jpashop.fixture.member;
 
-import jpabook.jpashop.member.Address;
-import jpabook.jpashop.member.Member;
+import jpabook.jpashop.domain.member.Address;
+import jpabook.jpashop.domain.member.Member;
 
 public class MemberFixture {
 

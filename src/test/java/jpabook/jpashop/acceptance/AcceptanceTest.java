@@ -1,4 +1,4 @@
-package jpabook.jpashop.web;
+package jpabook.jpashop.acceptance;
 
 import jpabook.jpashop.util.DatabaseCleanUp;
 import org.aspectj.lang.annotation.Before;

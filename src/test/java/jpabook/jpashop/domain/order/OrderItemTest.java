@@ -1,7 +1,6 @@
 package jpabook.jpashop.domain.order;
 
-import jpabook.jpashop.domain.order.OrderItem;
-import jpabook.jpashop.fixture.item.ItemFixture;
+import jpabook.jpashop.fixture.domain.item.ItemFixture;
 import jpabook.jpashop.domain.item.Item;
 import org.junit.jupiter.api.Test;
 

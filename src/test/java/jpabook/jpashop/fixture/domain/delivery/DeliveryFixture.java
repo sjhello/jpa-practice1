@@ -1,4 +1,4 @@
-package jpabook.jpashop.fixture.delivery;
+package jpabook.jpashop.fixture.domain.delivery;
 
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.delivery.DeliveryStatus;

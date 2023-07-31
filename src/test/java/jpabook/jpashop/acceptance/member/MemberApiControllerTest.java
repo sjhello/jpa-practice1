@@ -1,10 +1,9 @@
-package jpabook.jpashop.web.member;
+package jpabook.jpashop.acceptance.member;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import jpabook.jpashop.web.AcceptanceTest;
-import org.aspectj.lang.annotation.Before;
+import jpabook.jpashop.acceptance.AcceptanceTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("회원 인수 테스트")
 class MemberApiControllerTest extends AcceptanceTest {

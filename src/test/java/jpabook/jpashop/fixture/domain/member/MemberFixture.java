@@ -1,4 +1,4 @@
-package jpabook.jpashop.fixture.member;
+package jpabook.jpashop.fixture.domain.member;
 
 import jpabook.jpashop.domain.member.Address;
 import jpabook.jpashop.domain.member.Member;

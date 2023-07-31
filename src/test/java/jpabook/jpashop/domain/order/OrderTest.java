@@ -2,12 +2,9 @@ package jpabook.jpashop.domain.order;
 
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.delivery.DeliveryStatus;
-import jpabook.jpashop.domain.order.Order;
-import jpabook.jpashop.domain.order.OrderItem;
-import jpabook.jpashop.domain.order.OrderStatus;
-import jpabook.jpashop.fixture.delivery.DeliveryFixture;
-import jpabook.jpashop.fixture.item.ItemFixture;
-import jpabook.jpashop.fixture.member.MemberFixture;
+import jpabook.jpashop.fixture.domain.delivery.DeliveryFixture;
+import jpabook.jpashop.fixture.domain.item.ItemFixture;
+import jpabook.jpashop.fixture.domain.member.MemberFixture;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.order.exception.AlreadyShippedException;

@@ -1,4 +1,4 @@
-package jpabook.jpashop.fixture.item;
+package jpabook.jpashop.fixture.domain.item;
 
 import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Item;

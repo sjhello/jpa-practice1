@@ -18,8 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("회원 인수 테스트")
 class MemberApiControllerTest extends AcceptanceTest {
 
-    private static final String API_PREFIX = "/api/";
-
     @DisplayName("회원 생성 V1")
     @Test
     void createMemberV1() {

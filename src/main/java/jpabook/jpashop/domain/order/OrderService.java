@@ -6,9 +6,14 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.item.ItemRepository;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberRepository;
+import jpabook.jpashop.web.order.dto.SimpleOrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,5 +43,13 @@ public class OrderService {
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findById(orderId);
         order.cancel();
+    }
+
+    public List<SimpleOrderDto> orders() {
+        List<Order> orders = orderRepository.findAll();
+
+        return orders.stream()
+                .map(SimpleOrderDto::new)
+                .collect(Collectors.toList());
     }
 }

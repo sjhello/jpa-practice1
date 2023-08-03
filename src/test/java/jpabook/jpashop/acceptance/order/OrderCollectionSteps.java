@@ -8,6 +8,7 @@ public class OrderCollectionSteps {
 
     private final static String FIND_ORDERS_V2_PATH = "/api/v2/orders";
     private final static String FIND_ORDERS_V3_PATH = "/api/v3/orders";
+    private final static String FIND_ORDERS_V3_1_PATH = "/api/v3.1/orders";
 
     public static ExtractableResponse<Response> 컬렉션_API_주문을_조회한다_V2() {
         ExtractableResponse<Response> response = RestAssured.given().log().all()
@@ -19,6 +20,13 @@ public class OrderCollectionSteps {
     public static ExtractableResponse<Response> 컬렉션_API_주문을_조회한다_V3() {
         ExtractableResponse<Response> response = RestAssured.given().log().all()
                 .when().get(FIND_ORDERS_V3_PATH)
+                .then().log().all().extract();
+        return response;
+    }
+
+    public static ExtractableResponse<Response> 컬렉션_API_주문을_조회한다_V3_1() {
+        ExtractableResponse<Response> response = RestAssured.given().log().all()
+                .when().get(FIND_ORDERS_V3_1_PATH)
                 .then().log().all().extract();
         return response;
     }

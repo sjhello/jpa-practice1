@@ -1,8 +1,6 @@
 package jpabook.jpashop.domain.order;
 
-import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.web.order.dto.OrderSimpleQueryDto;
-import jpabook.jpashop.web.order.dto.SimpleOrderDto;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -40,8 +38,17 @@ public class OrderRepository {
 
     public List<OrderSimpleQueryDto> findOrderDtos() {
         return em.createQuery("select new jpabook.jpashop.web.order.dto.OrderSimpleQueryDto(o.id, m.username, o.orderDate, o.status, d.address) from Order o " +
-                "join o.member m " +
-                "join o.delivery d", OrderSimpleQueryDto.class)
+                        "join o.member m " +
+                        "join o.delivery d", OrderSimpleQueryDto.class)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithItem() {
+        return em.createQuery("select distinct o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item", Order.class)
                 .getResultList();
     }
 }

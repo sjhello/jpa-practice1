@@ -2,9 +2,6 @@ package jpabook.jpashop.domain.order;
 
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.delivery.DeliveryStatus;
-import jpabook.jpashop.domain.order.Order;
-import jpabook.jpashop.domain.order.OrderRepository;
-import jpabook.jpashop.domain.order.OrderStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

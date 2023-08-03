@@ -6,6 +6,7 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.item.ItemRepository;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberRepository;
+import jpabook.jpashop.web.order.dto.OrderSimpleQueryDto;
 import jpabook.jpashop.web.order.dto.SimpleOrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,15 @@ public class OrderService {
         return orders.stream()
                 .map(SimpleOrderDto::new)
                 .collect(Collectors.toList());
+    }
+
+    public List<SimpleOrderDto> ordersFetch() {
+        return orderRepository.findAllFetch().stream()
+                .map(SimpleOrderDto::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<OrderSimpleQueryDto> ordersFindQuery() {
+        return orderRepository.findOrderDtos();
     }
 }

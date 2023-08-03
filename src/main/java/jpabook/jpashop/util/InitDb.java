@@ -23,6 +23,7 @@ public class InitDb {
     public void init() {
         initDbService.dbInit1();
         initDbService.dbInit2();
+        initDbService.dbInit3();
     }
 
     @Component
@@ -59,6 +60,24 @@ public class InitDb {
             em.persist(book1);
 
             Book book2 = createBook("SPRING2 BOOK", 40000, 300);
+            em.persist(book2);
+
+            OrderItem orderItem1 = OrderItem.createOrderItem(book1, 20000, 3);
+            OrderItem orderItem2 = OrderItem.createOrderItem(book2, 40000, 4);
+
+            Delivery delivery = createDelivery(member);
+            Order order = Order.createOrder(member, delivery, orderItem1, orderItem2);
+            em.persist(order);
+        }
+
+        public void dbInit3() {
+            Member member = createMember("userC", "광주", "3", "3333");
+            em.persist(member);
+
+            Book book1 = createBook("JENKINS1 BOOK", 20000, 200);
+            em.persist(book1);
+
+            Book book2 = createBook("JENKINS2 BOOK", 40000, 300);
             em.persist(book2);
 
             OrderItem orderItem1 = OrderItem.createOrderItem(book1, 20000, 3);

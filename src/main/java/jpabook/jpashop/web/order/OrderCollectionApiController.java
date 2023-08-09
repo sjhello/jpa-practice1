@@ -1,8 +1,10 @@
 package jpabook.jpashop.web.order;
 
 import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.domain.order.OrderQueryRepository;
 import jpabook.jpashop.domain.order.OrderRepository;
 import jpabook.jpashop.web.order.dto.OrderDto;
+import jpabook.jpashop.web.order.dto.OrderQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +22,7 @@ public class OrderCollectionApiController {
      */
 
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     /**
      * V1 엔티티 직접 노출
@@ -65,5 +68,13 @@ public class OrderCollectionApiController {
         return orders.stream()
                 .map(OrderDto::new)
                 .collect(Collectors.toList());
+    }
+    
+    /**
+     * V4 JPA에서 직접 DTO 조회
+     * */
+    @RequestMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4() {
+        return orderQueryRepository.findOrderQueryDtos();
     }
 }
